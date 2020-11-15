@@ -56,7 +56,9 @@ async def on_message(message):
         response = remove_from(contents)
         await message.channel.send('__**' + response + '**__')
     elif message_content.startswith('suggest'):
-        response = suggestion(message_content.split()[2:])
+        recipient = message_content.split()[2]
+        price_range = message_content.split()[4]
+        response = suggestion(recipient,price_range)
         await message.channel.send('__**' + response + '**__')
     elif message_content.startswith('advice'):
         recipient = message_content.split()[2:]
@@ -116,16 +118,17 @@ def remove_from(contents):
     else:
         return 'You typed nothing'
     
-def suggestion(contents):
+def suggestion(recipient, price_range):
     '''Suggests a present based on the inputted price range'''
-    if contents[0] == '20':
-        return random.choice(open('giftunder20.txt').readlines())
-    elif contents[0] == '50':
-        return random.choice(open('giftunder50.txt').readlines())
-    elif contents[0] == '100':
-        return random.choice(open('giftunder100.txt').readlines())
+    if price_range == '20':
+        gift = random.choice(open('giftunder20.txt').readlines())
+    elif price_range == '50':
+        gift = random.choice(open('giftunder50.txt').readlines())
+    elif price_range == '100':
+        gift = random.choice(open('giftunder100.txt').readlines())
     else:
-        return "You're too rich go donate to charity"
+        return "Nobody deserves a present that costs that much. Go donate to charity."
+    return give_command([recipient,gift])
 
 def advisor(contents):
     '''Gives you advice about whether you should give the person in question a present or not'''
