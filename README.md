@@ -5,6 +5,11 @@
 Installation tested in a Ubuntu16 system. Python 3.6.9.
 
 ## Install dependencies
+> OPTION A: INSTALL ALL DEPENDENCIES
+```bash
+pip3 install -r requirements.txt
+```
+> OPTION B: INSTALL DEPENDENCIES INDIVIDUALLY
 #### 1. Change directory to /wishbot  
 ```bash
 cd wishbot
