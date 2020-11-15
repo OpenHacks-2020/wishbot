@@ -27,7 +27,7 @@ a. Stuff (placeholder)
 python3 bot.py
 ```
 ## Use bot.py
-> Type the following into Discord in order to achieve the desired result
+> Type the following into Discord in order to receive the respective result
 #### 1. To ADD an item to a wishlist for a specified recipient
 ```bash
 give <recipient's name> a(n) <item name>
