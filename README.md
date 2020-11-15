@@ -58,6 +58,9 @@ advice about <recipient's name>
 ## Source Code Walkthrough - Click below to watch!
 [![Alt text](https://img.youtube.com/vi/LBh8Fwpyunk/0.jpg)](https://www.youtube.com/watch?v=LBh8Fwpyunk)
 
+## Learn More About WishBot
+[![Alt text](https://img.youtube.com/vi/nbOEAL399Dw/0.jpg)](https://youtu.be/nbOEAL399Dw)
+
 ## References
 https://realpython.com/how-to-make-a-discord-bot-python/
 
