@@ -11,15 +11,23 @@ cd wishbot
 ```
 #### 2. Install Discord.py
 ```bash
-pip install -U discord.py
+pip3 install -U discord.py
 ```
 #### 3. Install Dotenv  
 ```bash
-pip install -U python-dotenv
+pip3 install -U python-dotenv
+```
+#### 4. Install BeautifulSoup  
+```bash
+pip3 install beautifulsoup4
+```
+#### 5. Install lxml requests  
+```bash
+pip3 install requests soupsieve lxml
 ```
 ## Update .env   
 ##### Used to customize and add WishBot to your own channels.  
-a. Stuff (placeholder)
+> Edit env template.md with bot's token and guild name (steps detailed below) 
 
 
 ## Run bot.py   
