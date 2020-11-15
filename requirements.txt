@@ -1,4 +1,4 @@
-discord.py
-python-dotenv
+-U discord.py
+-U python-dotenv
 beautifulsoup4
 requests soupsieve lxml
