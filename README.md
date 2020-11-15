@@ -33,8 +33,8 @@ pip3 install requests soupsieve lxml
 ```
 ## Update .env   
 ##### Used to customize and add WishBot to your own channels.  
-> Edit env template.md with bot's token and guild name (steps detailed below) 
-
+> Edit env template.md with bot's token and guild name (steps detailed in the link below)
+https://realpython.com/how-to-make-a-discord-bot-python/
 
 ## Run bot.py   
 ```bash
@@ -54,3 +54,10 @@ retrieve <recipient's name> link(s)
 suggest for <recipient's name> under <cash amount either 20, 50, or 100>
 #### 5. To SOLICIT ADVICE about whether or not you should get a present for a specified recipient
 advice about <recipient's name>
+  
+## References
+https://realpython.com/how-to-make-a-discord-bot-python/
+https://stackoverflow.com/questions/5815747/beautifulsoup-getting-href
+https://pythonspot.com/extract-links-from-webpage-beautifulsoup/
+https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+
