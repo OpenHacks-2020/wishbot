@@ -49,10 +49,12 @@ async def on_message(message):
         response = remove_from(message_content.split()[1:])
         await message.channel.send('__**' + response + '**__')
     elif message_content.startswith('suggest'):
-        response = suggestion(message_content.split()[1:])
+        response = suggestion(message_content.split()[2:])
+        await message.channel.send('__**' + response + '**__')
     elif message_content.startswith('advice'):
-        recipient = message_content.split()[-1]
+        recipient = message_content.split()[2:]
         response = advisor(recipient)
+        await message.channel.send('__**' + response + '**__')
             
 
 @client.event
@@ -102,28 +104,23 @@ def remove_from(contents):
     
 def suggestion(contents):
     '''Suggests a present based on the inputted price range'''
-    under_20 = open('giftunder20.txt').read().splitlines()
-    under_50 = open('giftunder50.txt').read().splitlines()
-    under_100 = open('giftunder100.txt').read().splitlines()
-    random.seed(a=None)
-    if contents == '20':
-        gift = random.choice(under_20)
-    elif contents == '50':
-        gift = random.choice(under_50)
-    elif contents == '100':
-        gift = random.choice(under_100)
+    if contents[0] == '20':
+        return random.choice(open('giftunder20.txt').readlines())
+    elif contents[0] == '50':
+        return random.choice(open('giftunder50.txt').readlines())
+    elif contents[0] == '100':
+        return random.choice(open('giftunder100.txt').readlines())
     else:
-        return "Nobody deserves a present that costs that much. Go donate to charity."
-    return give_command(gift)
+        return "You're too rich go donate to charity"
 
 def advisor(contents):
     '''Gives you advice about whether you should give the person in question a present or not'''
     possibilities = [1,0]
     advice = random.choice(possibilities)
     if advice:
-        return 'You should give ' + contents[0] + ' a present.'
+        return 'You should give {0} a present.'.format(contents[0])
     else:
-        return 'Forget ' + contents[0] + '. Buy yourself something nice.'
+        return 'Forget {0}. Buy yourself something nice.'.format(contents[0])
 
 
 # @bot.command(name='CA', help='Gives the number of current COVID-19 cases in California')
@@ -134,4 +131,3 @@ def advisor(contents):
 
 client.run(TOKEN)
 #bot.run(TOKEN)
-
