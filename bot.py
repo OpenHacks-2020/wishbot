@@ -73,8 +73,6 @@ async def on_error(event, *args, **kwargs):
     with open('err.log', 'a') as f:
         if event == 'on_message':
             f.write(f'Unhandled message: {args[0]}\n')
-        else:
-            raise
 
 @client.event
 async def on_command_error(ctx, error):
@@ -104,6 +102,7 @@ def give_command(contents):
     else:
         return 'You typed nothing'
 
+#REMOVE
 def remove_from(contents):
     '''Removes Etsy URL from WISHLIST entry associated with the RECIPIENT and returns a string confirming gift removal.'''
     if len(contents) >= 2:
@@ -119,7 +118,8 @@ def remove_from(contents):
         return ' '.join(contents[1:]).capitalize() + " removed from {0}'s wishlist".format(recipient.capitalize())
     else:
         return 'You typed nothing'
-    
+
+#SUGGEST    
 def suggestion(recipient, price_range):
     '''Suggests a present based on the inputted price range'''
     if price_range == '20':
@@ -132,6 +132,7 @@ def suggestion(recipient, price_range):
         return "Nobody deserves a present that costs that much. Go donate to charity."
     return give_command([recipient,gift])
 
+#ADVICE (GAG)
 def advisor(contents):
     '''Gives you advice about whether you should give the person in question a present or not'''
     possibilities = [1,0]
@@ -141,14 +142,10 @@ def advisor(contents):
     else:
         return 'Forget {0}. Buy yourself something nice.'.format(contents[0])
 
+#HELP
 def help_command():
+    ''' Displays a welcome message and a link to WishBot's GitHub'''
     help = "_***WELCOME TO WISHBOT! CHECK OUT COMMANDS AND MORE @ GITHUB: https://github.com/OpenHacks-2020/wishbot***_\n" 
     return help
-# @bot.command(name='CA', help='Gives the number of current COVID-19 cases in California')
-# async def number_cases(ctx):
-#     cases = 'CA CASES PLACEHOLDER'
-#     response = cases
-#     await ctx.send(response)
 
 client.run(TOKEN)
-#bot.run(TOKEN)
