@@ -45,9 +45,9 @@ python3 bot.py
 give <recipient's name> a(n) <item name>
 #### 2. To REMOVE an item from a specified recipient's wishlist
 remove <recipient's name>'s <item name>
-#### 3a. To VIEW the links to __item searches__ in a specified recipient's wishlist (for large wishlists)
+#### 3a. To VIEW the links to _item searches_ in a specified recipient's wishlist (for large wishlists)
 retrieve <recipient's name>
-#### 3b. To VIEW the suggested __direct links__ to items in a specified recipient's wishlist (for small wishlists)
+#### 3b. To VIEW the _suggested direct links_ to items in a specified recipient's wishlist (for small wishlists)
 retrieve <recipient's name> link(s)
 #### 4. To RECEIVE A SUGGESTION for a gift for a specified recipient within a certain price range
 suggest for <recipient's name> under <cash amount either 20, 50, or 100>
