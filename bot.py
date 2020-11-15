@@ -138,9 +138,9 @@ def advisor(contents):
     possibilities = [1,0]
     advice = random.choice(possibilities)
     if advice:
-        return 'You should give {0} a present.'.format(contents[0])
+        return 'You should give {0} a present.'.format(contents[0].capitalize())
     else:
-        return 'Forget {0}. Buy yourself something nice.'.format(contents[0])
+        return 'Forget {0}. Buy yourself something nice.'.format(contents[0].capitalize())
 
 #HELP
 def help_command():
