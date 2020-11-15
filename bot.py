@@ -64,7 +64,9 @@ async def on_message(message):
         recipient = message_content.split()[2:]
         response = advisor(recipient)
         await message.channel.send('__**' + response + '**__')
-            
+    elif message_content == 'help':
+        response = help_command()
+        await message.channel.send(response)        
 
 @client.event
 async def on_error(event, *args, **kwargs):
@@ -139,6 +141,7 @@ def advisor(contents):
     else:
         return 'Forget {0}. Buy yourself something nice.'.format(contents[0])
 
+def help_command():
 
 # @bot.command(name='CA', help='Gives the number of current COVID-19 cases in California')
 # async def number_cases(ctx):
