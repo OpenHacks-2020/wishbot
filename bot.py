@@ -26,7 +26,7 @@ async def on_ready():
 async def on_member_join(member):
     await member.create_dm()
     await member.dm_channel.send(
-        f'Hi {member.name}, welcome to the CovidUpdates discord server - created for the OpenHacks 2020 Hackathon!'
+        f'Hi {member.name}, welcome to the WishBot discord server - created for the OpenHacks 2020 Hackathon!'
     )
 
 @client.event
