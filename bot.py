@@ -46,7 +46,9 @@ async def on_message(message):
         else:
             await message.channel.send('***There are no gifts selected for {0}.***'.format(name.capitalize()))
     elif message_content.startswith('remove'):
-        response = remove_from(message_content.split()[1:])
+        contents = message_content.split()[1:]
+        contents[0] = contents[0].split("'")[0]
+        response = remove_from(contents)
         await message.channel.send('__**' + response + '**__')
     elif message_content.startswith('suggest'):
         response = suggestion(message_content.split()[2:])
