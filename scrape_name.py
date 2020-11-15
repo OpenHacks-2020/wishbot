@@ -1,3 +1,5 @@
+# NOT implemented as part of bot.py
+
 # #-*- coding: utf-8 -*-
 from bs4 import BeautifulSoup
 import requests
