@@ -1,3 +1,5 @@
+![WishBot Logo]
+(https://github.com/OpenHacks-2020/wishbot/blob/main/wishBotLogo.png)
 # WishBot
 > A Discord bot to select, track, and obtain information on possible gift items for your friends and family!
 > Test server invite link: https://discord.gg/UQQCZ2RP5u 
