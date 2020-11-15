@@ -26,7 +26,7 @@ async def on_ready():
 async def on_member_join(member):
     await member.create_dm()
     await member.dm_channel.send(
-        f'Hi {member.name}, welcome to the WishBot discord server - created for the OpenHacks 2020 Hackathon!'
+        f'Hi {member.name}, welcome to the WishBot discord server - created for the OpenHacks 2020 Hackathon!\n{help_command()}'
     )
 
 @client.event
@@ -142,7 +142,8 @@ def advisor(contents):
         return 'Forget {0}. Buy yourself something nice.'.format(contents[0])
 
 def help_command():
-
+    help = "_***WELCOME TO WISHBOT! CHECK OUT COMMANDS AND MORE @ GITHUB: https://github.com/OpenHacks-2020/wishbot***_\n" 
+    return help
 # @bot.command(name='CA', help='Gives the number of current COVID-19 cases in California')
 # async def number_cases(ctx):
 #     cases = 'CA CASES PLACEHOLDER'
