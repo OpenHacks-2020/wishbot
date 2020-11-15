@@ -45,6 +45,9 @@ async def on_message(message):
             await message.channel.send('__**Current gifts for {0}:\n{1}**__'.format(name.capitalize(), gifts))
         else:
             await message.channel.send('***There are no gifts selected for {0}.***'.format(name.capitalize()))
+    elif message_content.startswith('remove'):
+        response = remove_from(message_content.split()[1:])
+        await message.channel.send('__**' + response + '**__')
             
 
 @client.event
@@ -54,6 +57,10 @@ async def on_error(event, *args, **kwargs):
             f.write(f'Unhandled message: {args[0]}\n')
         else:
             raise
+
+@client.event
+async def on_command_error(ctx, error):
+    await ctx.send(f'Error. Try .help ({error})')
 
 #CUSTOM COMMANDS
 
@@ -75,6 +82,20 @@ def give_command(contents):
     else:
         return 'You typed nothing'
 
+def remove_from(contents):
+    '''Removes Etsy URL from WISHLIST entry associated with the RECIPIENT and returns a string confirming gift removal.'''
+    if len(contents) >= 2:
+        recipient = contents[0]
+        desired_gift = '+'.join(contents[1:])
+        if recipient in WISHLIST:
+            WISHLIST[recipient].remove('https://www.etsy.com/search?q={0}'.format(desired_gift))
+        else:
+            return 'Unknown recipient.'
+        return ' '.join(contents[1:]).capitalize() + " removed from {0}'s wishlist".format(recipient.capitalize())
+    else:
+        return 'You typed nothing'
+
+
 # @bot.command(name='CA', help='Gives the number of current COVID-19 cases in California')
 # async def number_cases(ctx):
 #     cases = 'CA CASES PLACEHOLDER'
@@ -83,3 +104,4 @@ def give_command(contents):
 
 client.run(TOKEN)
 #bot.run(TOKEN)
+
