@@ -57,7 +57,12 @@ advice about <recipient's name>
   
 ## References
 https://realpython.com/how-to-make-a-discord-bot-python/
+
 https://stackoverflow.com/questions/5815747/beautifulsoup-getting-href
+
 https://pythonspot.com/extract-links-from-webpage-beautifulsoup/
+
 https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+
+https://stackoverflow.com/questions/14885907/scraping-product-names-using-beautifulsoup
 
