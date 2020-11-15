@@ -112,7 +112,7 @@ def suggestion(contents):
     elif contents == '100':
         gift = random.choice(under_100)
     else:
-        return "You're too rich go donate to charity"
+        return "Nobody deserves a present that costs that much. Go donate to charity."
     return give_command(gift)
 
 def advisor(contents):
