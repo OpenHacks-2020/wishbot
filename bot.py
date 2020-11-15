@@ -105,6 +105,7 @@ def suggestion(contents):
     under_20 = open('giftunder20.txt').read().splitlines()
     under_50 = open('giftunder50.txt').read().splitlines()
     under_100 = open('giftunder100.txt').read().splitlines()
+    random.seed(a=None)
     if contents == '20':
         gift = random.choice(under_20)
     elif contents == '50':
