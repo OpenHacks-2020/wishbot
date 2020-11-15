@@ -1,4 +1,5 @@
 # NOT implemented as part of bot.py
+# Possible usage: ask user if they would like to add the suggested gift (by displaying the name and soliciting a 'yes' or 'no') before adding it to the wishlist
 
 # #-*- coding: utf-8 -*-
 from bs4 import BeautifulSoup
