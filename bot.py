@@ -130,7 +130,7 @@ def suggestion(recipient, price_range):
         gift = random.choice(open('giftunder100.txt').readlines())
     else:
         return "Nobody deserves a present that costs that much. Go donate to charity."
-    return give_command([recipient,gift])
+    return give_command([recipient,gift.strip()])
 
 #ADVICE (GAG)
 def advisor(contents):
