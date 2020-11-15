@@ -1,5 +1,6 @@
 # WishBot
 > A Discord bot to select, track, and obtain information on possible gift items for your friends and family!
+> Test server invite link: https://discord.gg/UQQCZ2RP5u 
 
 Installation tested in a Ubuntu16 system. Python 3.6.9.
 
