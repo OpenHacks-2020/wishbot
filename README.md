@@ -54,7 +54,10 @@ retrieve <recipient's name> link(s)
 suggest for <recipient's name> under <cash amount either 20, 50, or 100>
 #### 5. To SOLICIT ADVICE about whether or not you should get a present for a specified recipient
 advice about <recipient's name>
-  
+
+## Source Code Walkthrough
+[![Alt text](https://img.youtube.com/vi/LBh8Fwpyunk/0.jpg)](https://www.youtube.com/watch?v=LBh8Fwpyunk)
+
 ## References
 https://realpython.com/how-to-make-a-discord-bot-python/
 
