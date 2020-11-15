@@ -3,11 +3,13 @@ import random
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
+from scraper import *
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
 WISHLIST = {}
+DIRECT_WISHLIST = {}
 
 client = discord.Client()
 bot = commands.Bot(command_prefix='!')
@@ -41,7 +43,10 @@ async def on_message(message):
         name = message_content.split()[1]
         name = name.split("'")[0]
         if name in WISHLIST:
-            gifts = "\n".join(WISHLIST[name])
+            if 'link' in message_content:
+                gifts = "\n".join(DIRECT_WISHLIST[name])
+            else:
+                gifts = "\n".join(WISHLIST[name])
             await message.channel.send('__**Current gifts for {0}:\n{1}**__'.format(name.capitalize(), gifts))
         else:
             await message.channel.send('***There are no gifts selected for {0}.***'.format(name.capitalize()))
@@ -83,10 +88,14 @@ def give_command(contents):
             return give_command(contents)
         else:
             desired_gift = '+'.join(contents[1:])
+            webpage = 'https://www.etsy.com/search?q={0}'.format(desired_gift)
+            webpage_direct = scrape_link(webpage)
             if recipient in WISHLIST:
-                WISHLIST[recipient].append('https://www.etsy.com/search?q={0}'.format(desired_gift))
+                WISHLIST[recipient].append(webpage)
+                DIRECT_WISHLIST[recipient].append(webpage_direct)
             else:
-                WISHLIST[recipient] = ['https://www.etsy.com/search?q={0}'.format(desired_gift)]
+                WISHLIST[recipient] = [webpage]
+                DIRECT_WISHLIST[recipient] = [webpage_direct]
             return ' '.join(contents[1:]).capitalize() + " added to {0}'s wishlist".format(recipient.capitalize())
     else:
         return 'You typed nothing'
@@ -96,8 +105,11 @@ def remove_from(contents):
     if len(contents) >= 2:
         recipient = contents[0]
         desired_gift = '+'.join(contents[1:])
+        webpage = 'https://www.etsy.com/search?q={0}'.format(desired_gift)
         if recipient in WISHLIST:
-            WISHLIST[recipient].remove('https://www.etsy.com/search?q={0}'.format(desired_gift))
+            webpage_direct = scrape_link(webpage)
+            WISHLIST[recipient].remove(webpage)
+            DIRECT_WISHLIST[recipient].remove(webpage_direct)
         else:
             return 'Unknown recipient.'
         return ' '.join(contents[1:]).capitalize() + " removed from {0}'s wishlist".format(recipient.capitalize())
