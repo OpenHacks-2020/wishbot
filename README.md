@@ -56,6 +56,7 @@ suggest for <recipient's name> under <cash amount either 20, 50, or 100>
 advice about <recipient's name>
 
 ## Source Code Walkthrough
+> Click below to watch!
 [![Alt text](https://img.youtube.com/vi/LBh8Fwpyunk/0.jpg)](https://www.youtube.com/watch?v=LBh8Fwpyunk)
 
 ## References
